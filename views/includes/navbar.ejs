@@ -40,10 +40,10 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link" href="/listings/new"> Airbnb Create A new Listing </a>
           <% if (!currentUser) { %>
-            <a class="nav-link" href="/login"><b> Login </b></a>
-            <a class="nav-link" href="/signup"><b> signup </b></a>
+            <a class="nav-link" href="/auth/login"><b> Login </b></a>
+            <a class="nav-link" href="/auth/signup"><b> signup </b></a>
             <% } %> <% if (currentUser) { %>
-            <a class="nav-link" href="/logout"><b> logout </b></a>
+            <a class="nav-link" href="/auth/logout"><b> logout </b></a>
           <% } %> 
       </div>
     </div>

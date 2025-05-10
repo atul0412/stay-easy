@@ -16,7 +16,6 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
 
-
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -90,9 +89,9 @@ app.use((req, res, next) => {
 }
 );
 
- app.use("/listings", listingsRouter);
+ app.use("/", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
-app.use("/", userRouter);
+app.use("/auth", userRouter);
 
 app.all("*", (req, res, next) => {
   next(new expressError("Page not found", 404));
