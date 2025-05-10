@@ -9,7 +9,11 @@
        class="card-img-top show-img" 
        alt="listing_image"/>
       <div class="card-body">
-        <p class="card-text"> OWN By -: <i><%= listing.owner.username %></i></p>
+        <% if (listing.owner && listing.owner.username) { %>
+          <p class="card-text"> OWN By -: <i><%= listing.owner.username %></i></p>
+        <% } else { %>
+          <p class="card-text"> OWN By -: <i>Unknown</i></p>
+        <% } %>
 
           <p><%= listing.description %></p>
 
@@ -19,7 +23,7 @@
       </div>
     </div>
       <br />
-      <% if(currentUser && currentUser._id == listing.owner._id) { %>
+      <% if ((currentUser && listing.owner && currentUser._id.toString() === listing.owner._id.toString()) || !listing.owner) { %>
         <div class="col-8 offset-3">
           <h4> Your Listing </h4>
           <p> You are the owner of this listing. </p>

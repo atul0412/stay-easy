@@ -68,7 +68,7 @@ module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
   await Listing.findByIdAndUpdate(id, { ...req.body.listing });
   req.flash("success", "Successfully updated the listing!");
-  res.redirect(`/listings/${id}`);
+  res.redirect(`/`);
 };
 
 // delete route
@@ -76,7 +76,7 @@ module.exports.updateListing = async (req, res) => {
 
 module.exports.deleteListing = async (req, res) => {
   let { id } = req.params;
-  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-  req.flash("success", "Successfully updated the listing!");
-  res.redirect(`/listings/${id}`);
+  await Listing.findByIdAndDelete(id, { ...req.body.listing });
+  req.flash("success", "Successfully Delete the listing!");
+  res.redirect('/');
 };
